@@ -1,0 +1,140 @@
+@use 'sass:map';
+@forward 'variables';
+@forward 'colors';
+
+@mixin getErrorMessage($variable: null, $value: null, $variables: null) {
+  /* stylelint-disable-next-line scss/operator-no-newline-after */
+  $error-message: 'Invalid value "' + $value + '" for ' + $variable +
+    '. Try one of these instead:';
+
+  @each $name, $value in $variables {
+    $error-message: $error-message + ' #{$name},';
+  }
+
+  /* stylelint-disable-next-line scss/operator-no-newline-after */
+  $error-message: str-slice($error-message, 1, str-length($error-message) - 1) +
+    '.';
+
+  @error $error-message;
+}
+
+@mixin elevation($type: sm) {
+  @if map-has-key($elevation-types, $type) {
+    box-shadow: map-get($elevation-types, $type);
+  } @else {
+    @include getErrorMessage('elevation', $type, $elevation-types);
+  }
+}
+
+@mixin typography-loop($settings) {
+  @each $name, $properties in $settings {
+    @each $property, $value in $properties {
+      @if $property == 'size' {
+        --nextui-typography-#{$name}-#{$property}: #{size($value)};
+      } @else if $property == 'lh' {
+        --nextui-typography-#{$name}-#{$property}: #{$value}px;
+      } @else {
+        // For other properties, just set them as-is
+        --nextui-typography-#{$name}-#{$property}: #{$value};
+      }
+    }
+  }
+}
+
+@mixin font($key: body) {
+  @if map.has-key($languages-map, $language) {
+    $settings: map.get($languages-map, $language);
+
+    @if map.has-key($settings, $key) {
+      $properties: map.get($settings, $key);
+
+      @if index(body label caption, $key) {
+        font-family: var(--font-sans);
+      } @else {
+        font-family: var(--font-mono);
+      }
+
+      font-size: var(
+        --nextui-typography-#{$key}-size,
+        map.get($properties, size)
+      );
+      letter-spacing: var(
+        --nextui-typography-#{$key}-ls,
+        map.get($properties, ls)
+      );
+      line-height: var(
+        --nextui-typography-#{$key}-lh,
+        map.get($properties, lh)
+      );
+    } @else {
+      @error "Wrong key passed, please check SCSS to see all available keys";
+    }
+  } @else {
+    @error "Wrong language passed, please use en";
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @include getErrorMessage('breakpoint', $breakpoint, $breakpoints);
+  }
+}
+
+@mixin borderRadiusLoop {
+  @each $name, $value in $border-radius-types {
+    @if $name == 100 {
+      --nextui-border-radius-#{$name}: #{$value};
+    } @else {
+      --nextui-border-radius-#{$name}: #{size($value)};
+    }
+  }
+}
+
+@mixin colorsLoop {
+  @each $name, $value in $colors {
+    --nextui-color-#{$name}: #{$value};
+    --nextui-color-rgb-#{$name}: #{map.get($colors-rgb, $name)};
+  }
+}
+
+@mixin fontLoopInRoot {
+  @include typography-loop($english-font-settings);
+}
+
+@mixin hover-pointer-fine {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin pointer-coarse {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin ellipsis($lines: 1) {
+  overflow: hidden;
+
+  @if $lines == 1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,26 @@
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(7);
+  margin: 0 auto;
+  max-width: size(320);
+  text-align: center;
+  width: 100%;
+
+  @include breakpoint(lg) {
+    max-width: size(560);
+  }
+
+  &__title {
+    @include font(heading-6);
+  }
+
+  &__description {
+    color: color(text-secondary);
+    margin-top: spacing(2);
+  }
+
+  &__action {
+    align-self: center;
+  }
+}

@@ -1,0 +1,65 @@
+$selector: '.breadcrumbs';
+
+#{$selector} {
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+
+  &__list {
+    align-items: center;
+    display: flex;
+    overflow-x: scroll;
+
+    @include hide-scrollbar;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    gap: spacing();
+
+    & + & {
+      margin-left: spacing();
+    }
+
+    &--expand {
+      align-items: center;
+      display: flex;
+    }
+
+    &--last {
+      cursor: default;
+
+      #{$selector}__option--last {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__option {
+    color: color(foreground, 0.5);
+    white-space: nowrap;
+
+    @include font(label);
+
+    @include hover-pointer-fine {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &:not(#{$selector}__option--last):focus-visible {
+      border-radius: radius(sm);
+      outline: 2px solid color(focus);
+      outline-offset: 1px;
+    }
+
+    &--last {
+      color: color(foreground);
+    }
+  }
+
+  &__icon {
+    color: currentColor;
+  }
+}

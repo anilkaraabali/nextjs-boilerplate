@@ -1,0 +1,35 @@
+.collapsing-description {
+  &__content {
+    max-height: size(124);
+    overflow: hidden;
+    position: relative;
+    transition: max-height 150ms;
+    word-break: break-word;
+
+    @include font(label);
+
+    &--trim {
+      &::after {
+        background: linear-gradient(
+          180deg,
+          color(text-primary, 0.0001) -27.87%,
+          color(light) 100%
+        );
+        bottom: 0;
+        content: '';
+        display: block;
+        height: size(84);
+        left: 0;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: spacing(2);
+    width: 100%;
+  }
+}

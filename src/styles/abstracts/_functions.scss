@@ -1,0 +1,79 @@
+@use 'sass:math';
+@use 'sass:map';
+@forward 'variables';
+@forward 'colors';
+
+@function spacing($type: 1) {
+  @if map-has-key($spacing-types, $type) {
+    @return size(map-get($spacing-types, $type));
+  } @else {
+    @return getErrorMessage('spacing', $type, $spacing-types);
+  }
+}
+
+@function color($selected-color: null, $alpha: null) {
+  @if $selected-color {
+    $exist: map-has-key($colors, $selected-color);
+
+    @if map-has-key($colors, $selected-color) {
+      @if $alpha {
+        @return rgba(
+          var(
+            --color-rgb-#{$selected-color},
+            map-get($colors-rgb, $selected-color)
+          ),
+          $alpha
+        );
+      }
+
+      @return var(
+        --color-#{$selected-color},
+        map-get($colors, $selected-color)
+      );
+    } @else {
+      @return getErrorMessage('color', $selected-color, $colors);
+    }
+  } @else {
+    @error 'You need to pass a color';
+  }
+}
+
+@function size($valueInPixels) {
+  @if $useRem {
+    @return px2rem($valueInPixels);
+  } @else {
+    @return #{$valueInPixels}px;
+  }
+}
+
+@function px2rem($value) {
+  $remValue: math.div($value, $remBase);
+
+  @return #{$remValue}rem;
+}
+
+@function zIndex($type: base) {
+  @if map-has-key($z-index-types, $type) {
+    @return map-get($z-index-types, $type);
+  } @else {
+    @return getErrorMessage('zIndex', $type, $z-index-types);
+  }
+}
+
+@function radius($type: m) {
+  @if map.has-key($border-radius-types, $type) {
+    @if $type == 100 {
+      @return var(
+        --nextui-border-radius-#{$type},
+        map.get($border-radius-types, $type)
+      );
+    } @else {
+      @return var(
+        --nextui-border-radius-#{$type},
+        #{size(map.get($border-radius-types, $type))}
+      );
+    }
+  } @else {
+    @return getErrorMessage('radius', $type, $border-radius-types);
+  }
+}

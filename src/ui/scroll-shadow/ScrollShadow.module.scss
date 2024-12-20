@@ -1,0 +1,19 @@
+.scroll-shadow {
+  background-color: color(background);
+  border-top: size(1) solid color(default-200);
+  bottom: 0;
+  left: 0;
+  position: sticky;
+  width: 100%;
+  z-index: zIndex(navigation);
+
+  @include elevation(md);
+
+  &--not-in-view {
+    transition: transform 200ms ease-in-out;
+  }
+
+  &--hidden {
+    transform: translateY(100%);
+  }
+}

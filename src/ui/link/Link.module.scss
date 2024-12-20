@@ -1,0 +1,103 @@
+$selector: '.link';
+
+#{$selector} {
+  align-items: center;
+  display: inline-flex;
+  gap: spacing(2);
+  transition: all 150ms ease-out;
+  user-select: none;
+
+  &-theme {
+    &--primary {
+      color: color(primary);
+    }
+
+    &--secondary {
+      color: color(secondary);
+    }
+
+    &--default {
+      color: color(foreground);
+    }
+  }
+
+  &-size {
+    &--sm {
+      @include font(label);
+    }
+
+    &--md {
+      @include font(body);
+    }
+
+    &--lg {
+      @include font(heading-6);
+    }
+  }
+
+  &-underline {
+    &--always {
+      text-decoration: underline;
+
+      @include hover-pointer-fine {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &--hover {
+      @include hover-pointer-fine {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &--none {
+      text-decoration: none;
+    }
+
+    &--active {
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &--block {
+    border-radius: radius(md);
+    padding: spacing() spacing(2);
+    text-decoration: none;
+
+    @include hover-pointer-fine {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &#{$selector}-theme--primary {
+      @include hover-pointer-fine {
+        &:hover {
+          background-color: color(primary, 0.2);
+        }
+      }
+    }
+
+    &#{$selector}-theme--secondary {
+      @include hover-pointer-fine {
+        &:hover {
+          background-color: color(secondary, 0.2);
+        }
+      }
+    }
+
+    &#{$selector}-theme--default {
+      @include hover-pointer-fine {
+        &:hover {
+          background-color: color(default, 0.2);
+        }
+      }
+    }
+  }
+}

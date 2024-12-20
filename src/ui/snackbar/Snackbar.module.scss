@@ -1,0 +1,90 @@
+$selector: '.snackbar';
+
+#{$selector} {
+  align-items: center;
+  background-color: color(foreground);
+  border-radius: radius(lg);
+  color: color(light);
+  display: flex;
+  gap: spacing(2);
+  justify-content: space-between;
+  min-height: size(52);
+  opacity: 0;
+  padding: spacing(2) spacing(4);
+  transition:
+    transform 150ms ease-in-out,
+    opacity 150ms ease-in-out;
+
+  @include elevation(md);
+  @include font(label);
+
+  @include breakpoint(sm) {
+    min-height: size(64);
+  }
+
+  &--visible {
+    opacity: 1;
+  }
+
+  &--below {
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: size(94);
+
+    #{$selector}__actions {
+      align-self: flex-end;
+    }
+
+    @include breakpoint(sm) {
+      min-height: size(110);
+    }
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: size(343);
+    position: fixed;
+    width: 100%;
+    z-index: var(--nextui-snackbar-z-index, zIndex(modal));
+
+    @include breakpoint(sm) {
+      max-width: size(480);
+    }
+
+    &--bottom-center {
+      bottom: size(16);
+      left: 50%;
+      transform: translateX(-50%);
+
+      #{$selector} {
+        transform: translateY(100%);
+      }
+
+      #{$selector}--visible {
+        transform: translateY(0);
+      }
+    }
+
+    &--bottom-left {
+      bottom: size(64);
+      left: size(64);
+
+      #{$selector} {
+        transform: translateX(-100%);
+      }
+
+      #{$selector}--visible {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+  }
+}

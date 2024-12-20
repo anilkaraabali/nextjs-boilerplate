@@ -1,0 +1,43 @@
+$selector: '.header';
+
+#{$selector} {
+  background-color: color(light);
+  border-bottom: 1px solid color(default-200);
+  left: 0;
+  padding-inline: spacing(6);
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  &__nav {
+    align-items: center;
+    display: flex;
+    gap: spacing(6);
+    height: size(64);
+  }
+
+  &__stack {
+    align-items: center;
+    display: flex;
+    gap: spacing();
+  }
+
+  &__divider {
+    color: color(default-200);
+  }
+
+  &__links {
+    display: flex;
+    gap: spacing(6);
+  }
+
+  &__item {
+    &:first-child {
+      margin-left: spacing(5);
+    }
+  }
+
+  &__link {
+    @include font(label);
+  }
+}

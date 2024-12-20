@@ -1,0 +1,32 @@
+$selector: '.footer';
+
+#{$selector} {
+  background-color: color(content-2);
+  display: flex;
+  flex-direction: column;
+  padding-block: spacing(7);
+
+  @include font(label);
+
+  &__nav {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 500;
+    margin-bottom: spacing(4);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(3);
+  }
+
+  &__link {
+    color: color(default-500);
+  }
+}

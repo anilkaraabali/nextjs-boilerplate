@@ -1,0 +1,13 @@
+@use 'sass:map';
+@import 'global';
+@import 'base/all';
+@import 'vendor';
+
+:root {
+  @each $name, $value in $colors {
+    --nextui-color-#{$name}: #{$value};
+    --nextui-color-rgb-#{$name}: #{map.get($colors-rgb, $name)};
+  }
+
+  @include typography-loop($english-font-settings);
+}

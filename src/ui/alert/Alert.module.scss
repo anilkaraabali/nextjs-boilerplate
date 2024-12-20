@@ -1,0 +1,85 @@
+$selector: '.alert';
+
+#{$selector} {
+  align-items: center;
+  background-color: color(default-100);
+  border-radius: radius(lg);
+  display: flex;
+  gap: spacing(2);
+  justify-content: space-between;
+  min-height: size(64);
+  padding: spacing(3) spacing(4);
+
+  &--primary {
+    background-color: color(primary-50);
+    color: color(primary-700);
+
+    #{$selector}__icon {
+      border-color: color(primary-100);
+    }
+  }
+
+  &--secondary {
+    background-color: color(secondary-50);
+    color: color(secondary-700);
+
+    #{$selector}__icon {
+      border-color: color(secondary-100);
+    }
+  }
+
+  &--success {
+    background-color: color(green-50);
+    color: color(green-700);
+
+    #{$selector}__icon {
+      border-color: color(green-100);
+    }
+  }
+
+  &--danger {
+    background-color: color(red-50);
+    color: color(red-700);
+
+    #{$selector}__icon {
+      border-color: color(red-100);
+    }
+  }
+
+  &--warning {
+    background-color: color(yellow-50);
+    color: color(yellow-700);
+
+    #{$selector}__icon {
+      border-color: color(yellow-100);
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    gap: spacing(2);
+  }
+
+  &__title {
+    flex: 1;
+
+    @include font(label);
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__icon {
+    align-items: center;
+    border: 1px solid currentColor;
+    border-radius: radius(full);
+    display: flex;
+    height: size(36);
+    justify-content: center;
+    width: size(36);
+
+    @include elevation(sm);
+  }
+}

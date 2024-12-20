@@ -1,0 +1,109 @@
+$remBase: 10 !default;
+$useRem: true !default;
+$spacing-types: (
+  0: 2,
+  1: 4,
+  2: 8,
+  3: 12,
+  4: 16,
+  5: 20,
+  6: 24,
+  7: 32,
+  8: 40,
+  9: 48,
+  10: 64,
+  11: 96,
+  12: 128,
+);
+$z-index-types: (
+  under: -1,
+  base: 0,
+  resting: 1,
+  floating: 2,
+  navigation: 3,
+  modal: 4,
+  header: 5,
+);
+$breakpoints: (
+  'xs': 520px,
+  'sm': 768px,
+  'md': 1024px,
+  'lg': 1280px,
+  'xl': 1640px,
+);
+$elevation-types: (
+  sm: (
+    0 0 5px 0 color(dark, 2%),
+    0 2px 10px 0 color(dark, 6%),
+    0 0 1px 0 color(dark, 30%),
+  ),
+  md: (
+    0 0 15px 0 color(dark, 3%),
+    0 2px 30px 0 color(dark, 8%),
+    0 0 1px 0 color(dark, 30%),
+  ),
+  lg: (
+    0 0 30px 0 color(dark, 4%),
+    0 30px 60px 0 color(dark, 12%),
+    0 0 1px 0 color(dark, 30%),
+  ),
+);
+$border-radius-types: (
+  sm: 4,
+  md: 8,
+  lg: 12,
+  xl: 16,
+  full: 512,
+  100: 100%,
+);
+$english-font-settings: (
+  heading-1: (
+    size: 60,
+    lh: 60,
+    ls: '-0.025em',
+  ),
+  heading-2: (
+    size: 35,
+    lh: 40,
+    ls: '-0.01em',
+  ),
+  heading-3: (
+    size: 28,
+    lh: 36,
+    ls: '-0.0075em',
+  ),
+  heading-4: (
+    size: 24,
+    lh: 30,
+    ls: '-0.00625em',
+  ),
+  heading-5: (
+    size: 20,
+    lh: 28,
+    ls: '-0.005em	',
+  ),
+  heading-6: (
+    size: 18,
+    lh: 26,
+    ls: '-0.0025em',
+  ),
+  body: (
+    size: 16,
+    lh: 24,
+    ls: '-0.0025em',
+  ),
+  label: (
+    size: 14,
+    lh: 20,
+    ls: '0em',
+  ),
+  caption: (
+    size: 12,
+    lh: 16,
+    ls: '0.0025em',
+  ),
+);
+$language: en !default;
+$languages-map: (
+  en: $english-font-settings,
+);

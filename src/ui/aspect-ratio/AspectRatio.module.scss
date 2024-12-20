@@ -1,0 +1,10 @@
+.aspect-ratio {
+  padding-bottom: calc(100% / var(--ratio));
+  position: relative;
+  width: 100%;
+
+  &__inner {
+    inset: 0;
+    position: absolute;
+  }
+}

@@ -1,0 +1,49 @@
+/* stylelint-disable-next-line scss/load-no-partial-leading-underscore */
+@use '../abstracts/_mixins' as *;
+
+/***
+  CSS reset
+  !!! Add all project-wide customizations you want here
+***/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  border-style: none;
+}
+
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

@@ -1,0 +1,42 @@
+$selector: '.infinite-banner';
+
+#{$selector} {
+  align-items: center;
+  display: flex;
+  height: size(64);
+  overflow: hidden;
+  position: relative;
+
+  @include hover-pointer-fine {
+    &:hover {
+      overflow: auto;
+
+      #{$selector}__carousel {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  &__carousel {
+    align-items: center;
+    animation: banner-move 20s linear infinite;
+    display: flex;
+    gap: spacing(3);
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+  }
+}
+
+@keyframes banner-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+}

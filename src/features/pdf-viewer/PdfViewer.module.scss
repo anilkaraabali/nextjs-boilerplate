@@ -1,0 +1,15 @@
+.pdf-layout {
+  &__header {
+    padding-block: spacing(7);
+  }
+
+  &__breadcrumbs {
+    margin-top: spacing(4);
+  }
+
+  &__title {
+    text-align: center;
+
+    @include font(heading-2);
+  }
+}
