@@ -38,9 +38,6 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
-      react-hook-form:
-        specifier: ^7.52.2
-        version: 7.52.2(react@18.2.0)
       react-icons:
         specifier: ^5.3.0
         version: 5.4.0(react@18.2.0)
@@ -50,9 +47,6 @@ importers:
       react-pdf:
         specifier: ^6.2.2
         version: 6.2.2(@types/react@18.0.28)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      react-swipeable:
-        specifier: ^7.0.1
-        version: 7.0.1(react@18.2.0)
       sanitize-html:
         specifier: ^2.13.0
         version: 2.13.0
@@ -5107,12 +5101,6 @@ packages:
       react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
       react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
 
-  react-hook-form@7.52.2:
-    resolution: {integrity: sha512-pqfPEbERnxxiNMPd0bzmt1tuaPcVccywFDpyk2uV5xCIBphHV5T8SVnX9/o3kplPE1zzKt77+YIoq+EMwJp56A==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17 || ^18 || ^19
-
   react-icons@5.4.0:
     resolution: {integrity: sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==}
     peerDependencies:
@@ -5152,11 +5140,6 @@ packages:
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
-
-  react-swipeable@7.0.1:
-    resolution: {integrity: sha512-RKB17JdQzvECfnVj9yDZsiYn3vH0eyva/ZbrCZXZR0qp66PBRhtg4F9yJcJTWYT5Adadi+x4NoG53BxKHwIYLQ==}
-    peerDependencies:
-      react: ^16.8.3 || ^17 || ^18
 
   react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -12345,10 +12328,6 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.1.0
 
-  react-hook-form@7.52.2(react@18.2.0):
-    dependencies:
-      react: 18.2.0
-
   react-icons@5.4.0(react@18.2.0):
     dependencies:
       react: 18.2.0
@@ -12385,10 +12364,6 @@ snapshots:
       - worker-loader
 
   react-refresh@0.14.2: {}
-
-  react-swipeable@7.0.1(react@18.2.0):
-    dependencies:
-      react: 18.2.0
 
   react@18.2.0:
     dependencies:
