@@ -1,0 +1,97 @@
+$selector: '.switch';
+
+#{$selector} {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: spacing(2);
+  user-select: none;
+
+  &--size {
+    &-sm {
+      @include font(label);
+
+      #{$selector}__button {
+        height: 2.4rem;
+        width: 4rem;
+
+        &::before {
+          height: 1.6rem;
+          width: 1.6rem;
+        }
+      }
+    }
+
+    &-md {
+      @include font(body);
+
+      #{$selector}__button {
+        height: 2.8rem;
+        width: 4.8rem;
+
+        &::before {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+    }
+
+    &-lg {
+      @include font(heading-6);
+
+      font-family: var(--font-sans);
+
+      #{$selector}__button {
+        height: 3.2rem;
+        width: 5.6rem;
+
+        &::before {
+          height: 2.4rem;
+          width: 2.4rem;
+        }
+      }
+    }
+  }
+
+  &__button {
+    background-color: color(default-200);
+    border-radius: radius(full);
+    padding: spacing();
+    transition: background-color 200ms ease-in-out;
+
+    &::before {
+      background-color: color(light);
+      border-radius: radius(full);
+      content: '';
+      display: block;
+      transition: transform 200ms ease-in-out;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: var(--nextui-disabled-opacity);
+      pointer-events: none;
+    }
+
+    &--checked {
+      &#{$selector}__button--theme-default {
+        background-color: color(default-400);
+      }
+
+      &#{$selector}__button--theme-primary {
+        background-color: color(primary);
+      }
+
+      &#{$selector}__button--theme-secondary {
+        background-color: color(secondary);
+      }
+
+      background-color: color(primary);
+
+      &::before {
+        background-color: color(light);
+        transform: translateX(100%);
+      }
+    }
+  }
+}

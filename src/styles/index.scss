@@ -10,4 +10,6 @@
   }
 
   @include typography-loop($english-font-settings);
+
+  --nextui-disabled-opacity: 0.5;
 }
