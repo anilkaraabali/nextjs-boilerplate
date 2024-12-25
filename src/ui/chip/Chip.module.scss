@@ -1,0 +1,159 @@
+$selector: '.chip';
+
+#{$selector} {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: space-between;
+  padding-inline: spacing();
+  transition: all 200ms ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+
+  &--disabled {
+    cursor: default;
+    opacity: var(--nextui-disabled-opacity);
+    pointer-events: none;
+  }
+
+  &--size {
+    &-sm {
+      height: size(24);
+
+      @include font(caption);
+
+      #{$selector}__label {
+        padding-inline: spacing();
+      }
+
+      &#{$selector}--with-start-content {
+        #{$selector}__label {
+          padding-inline-start: spacing(0);
+        }
+      }
+
+      &#{$selector}--with-end-content {
+        #{$selector}__label {
+          padding-inline-end: spacing(0);
+        }
+      }
+    }
+
+    &-md {
+      height: size(28);
+
+      @include font(label);
+
+      #{$selector}__label {
+        padding-inline: spacing(2);
+      }
+
+      &#{$selector}--with-start-content {
+        #{$selector}__label {
+          padding-inline-start: spacing();
+        }
+      }
+
+      &#{$selector}--with-end-content {
+        #{$selector}__label {
+          padding-inline-end: spacing();
+        }
+      }
+    }
+
+    &-lg {
+      height: size(32);
+
+      @include font(body);
+
+      #{$selector}__label {
+        padding-inline: spacing(2);
+      }
+
+      &#{$selector}--with-start-content {
+        #{$selector}__label {
+          padding-inline-start: spacing();
+        }
+      }
+
+      &#{$selector}--with-end-content {
+        #{$selector}__label {
+          padding-inline-end: spacing();
+        }
+      }
+    }
+  }
+
+  &--radius {
+    &--none {
+      border-radius: 0;
+    }
+
+    &-sm {
+      border-radius: radius(sm);
+    }
+
+    &-md {
+      border-radius: radius(md);
+    }
+
+    &-lg {
+      border-radius: radius(lg);
+    }
+
+    &-full {
+      border-radius: radius(full);
+    }
+  }
+
+  &--theme {
+    &-default {
+      background-color: color(default);
+    }
+
+    &-primary {
+      background-color: color(primary);
+    }
+
+    &-secondary {
+      background-color: color(secondary);
+    }
+  }
+
+  &--variant {
+    &-solid {
+      &#{$selector}--theme-primary,
+      &#{$selector}--theme-secondary {
+        color: color(light);
+      }
+    }
+
+    &-flat {
+      &#{$selector}--theme-default {
+        background-color: color(default, 0.2);
+      }
+
+      &#{$selector}--theme-primary {
+        background-color: color(primary, 0.2);
+        color: color(primary-700);
+      }
+
+      &#{$selector}--theme-secondary {
+        background-color: color(secondary, 0.2);
+        color: color(secondary-700);
+      }
+    }
+
+    &-light {
+      background-color: transparent;
+
+      &#{$selector}--theme-primary {
+        color: color(primary);
+      }
+
+      &#{$selector}--theme-secondary {
+        color: color(secondary);
+      }
+    }
+  }
+}
