@@ -13,6 +13,18 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+     - name: Extract Git Commit Author Info
+        id: git-info
+        run: |
+          git fetch origin ${{ github.head_ref || github.ref_name }} --depth=1
+          git config --global user.name "$(git log -1 origin/${{ github.head_ref || github.ref_name }} --pretty=format:'%an')"
+          git config --global user.email "$(git log -1 origin/${{ github.head_ref || github.ref_name }} --pretty=format:'%ae')"
+
+      - name: Show Git Config
+        run: git config --list
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -20,8 +32,17 @@ jobs:
           node-version: '18.20.4'
           cache: 'pnpm'
 
+      - name: Verify Node.js and PNPM Environment
+        run: |
+          node --version
+          npm --version
+          pnpm --version || echo "PNPM not installed, proceeding with installation"
+
       - name: Install pnpm
         run: npm install -g pnpm
+
+      - name: Verify PNPM Installation
+        run: pnpm --version
 
       - name: Install Dependencies
         run: pnpm install
