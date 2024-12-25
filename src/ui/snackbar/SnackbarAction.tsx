@@ -15,6 +15,7 @@ const SnackbarAction: FC<SnackbarActionProps> = ({ action }) => {
 
   return 'href' in action ? (
     <Link
+      data-testid='snackbar-action'
       theme='primary'
       {...(action as LinkProps)}
       href={action.href}
@@ -27,6 +28,7 @@ const SnackbarAction: FC<SnackbarActionProps> = ({ action }) => {
     </Link>
   ) : (
     <Button
+      data-testid='snackbar-action'
       theme='primary'
       variant='light'
       {...(action as ButtonProps)}
