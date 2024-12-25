@@ -34,7 +34,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.20.4'
-          cache: 'pnpm'
 
       # Step 5: Verify Node.js and PNPM Environment
       - name: Verify Node.js and PNPM Environment
