@@ -51,7 +51,7 @@
       @if index(body label caption, $key) {
         font-family: var(--font-sans);
       } @else {
-        font-family: var(--font-mono);
+        font-family: var(--font-sans);
       }
 
       font-size: var(

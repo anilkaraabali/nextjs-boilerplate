@@ -23,6 +23,7 @@ module.exports = {
     JSX: true,
     React: true,
   },
+  ignorePatterns: ['node_modules', 'dist', '!/.storybook'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -98,12 +99,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/prop-types': 'off',
     'react/self-closing-comp': 'error',
-    'testing-library/consistent-data-testid': [
-      'error',
-      {
-        testIdPattern: '^[a-z]+(-[a-z]+)*$', // enforce the usage of kebab-case
-      },
-    ],
     'testing-library/no-node-access': [
       'error',
       { allowContainerFirstChild: true },

@@ -1,0 +1,111 @@
+$selector: '.modal';
+
+#{$selector} {
+  background-color: color(content-1);
+  border-radius: radius(lg);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: spacing();
+  max-height: 75vh;
+  overflow-y: hidden;
+  position: relative;
+  width: 100%;
+  z-index: zIndex(modal);
+
+  @include elevation(sm);
+
+  @include breakpoint(xs) {
+    margin: spacing(10) spacing(6);
+    max-height: 90vh;
+  }
+
+  &__wrapper {
+    align-items: flex-end;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    position: fixed;
+    will-change: auto;
+
+    @include breakpoint(xs) {
+      align-items: center;
+    }
+  }
+
+  &--size {
+    &-xs {
+      max-width: size(320);
+    }
+
+    &-sm {
+      max-width: size(384);
+    }
+
+    &-md {
+      max-width: size(448);
+    }
+
+    &-lg {
+      max-width: size(512);
+    }
+
+    &-xl {
+      max-width: size(576);
+    }
+
+    &-2xl {
+      max-width: size(672);
+    }
+
+    &-3xl {
+      max-width: size(768);
+    }
+
+    &-4xl {
+      max-width: size(896);
+    }
+
+    &-5xl {
+      max-width: size(1024);
+    }
+
+    &-full {
+      border-radius: 0;
+      height: 100vh;
+      margin: 0;
+      max-height: none;
+    }
+  }
+
+  &__close-btn {
+    inset-inline-end: 4px;
+    position: absolute;
+    top: 4px;
+  }
+
+  &__header {
+    display: flex;
+    flex: 0 1 auto;
+    font-weight: 600;
+    padding: spacing(4) spacing(6);
+
+    @include font(heading-6);
+  }
+
+  &__body {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: spacing(2) spacing(6);
+  }
+
+  &__footer {
+    display: flex;
+    flex: 0 1 auto;
+    gap: spacing(2);
+    justify-content: flex-end;
+    padding: spacing(4) spacing(6);
+  }
+}
