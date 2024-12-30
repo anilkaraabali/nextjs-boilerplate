@@ -1,7 +1,8 @@
-name: Test Check
+name: Test checks
 
 on:
   pull_request:
+    types: [opened, reopened, synchronize]
     branches:
       - master
       - '**'
