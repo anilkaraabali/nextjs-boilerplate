@@ -1,12 +1,13 @@
 import type { Preview } from '@storybook/react';
-import React from 'react';
-import './styles.scss';
 
-import { Snackbar } from '../src/ui/snackbar';
-import { fontMono, fontSans } from '../src/config/fonts';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { NextIntlClientProvider } from 'next-intl';
+import React from 'react';
 
 import enMessages from '../messages/en.json';
+import { fontMono, fontSans } from '../src/config/fonts';
+import { Snackbar } from '../src/ui/snackbar';
+import './styles.scss';
 
 const preview: Preview = {
   decorators: [
@@ -31,6 +32,19 @@ const preview: Preview = {
       );
     },
   ],
+  globalTypes: {
+    locale: {
+      defaultValue: 'en',
+      description: 'Internationalization locale',
+      toolbar: {
+        icon: 'globe',
+        items: [
+          { right: '🇺🇸', title: 'English', value: 'en' },
+          { right: '🇩🇪', title: 'German', value: 'de' },
+        ],
+      },
+    },
+  },
   parameters: {
     controls: {
       matchers: {
@@ -41,21 +55,11 @@ const preview: Preview = {
     nextjs: {
       appDirectory: false,
     },
-  },
-  tags: ['autodocs'],
-  globalTypes: {
-    locale: {
-      description: 'Internationalization locale',
-      defaultValue: 'en',
-      toolbar: {
-        icon: 'globe',
-        items: [
-          { value: 'en', right: '🇺🇸', title: 'English' },
-          { value: 'de', right: '🇩🇪', title: 'German' },
-        ],
-      },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
     },
   },
+  tags: ['autodocs'],
 };
 
 export default preview;

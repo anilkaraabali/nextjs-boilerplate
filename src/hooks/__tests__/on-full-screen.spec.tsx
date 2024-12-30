@@ -5,7 +5,7 @@ import { OnFullScreenProps, useOnFullScreen } from '../on-full-screen.hook';
 describe('useOnFullScreen', () => {
   const defaultProps: OnFullScreenProps = {
     documentBodyClassName: 'fullscreen-active',
-    openOnLoad: false,
+    isOpen: false,
   };
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('useOnFullScreen', () => {
 
   it('should initialize with openOnLoad state', () => {
     const { result } = renderHook(() =>
-      useOnFullScreen({ ...defaultProps, openOnLoad: true })
+      useOnFullScreen({ ...defaultProps, isOpen: true })
     );
 
     expect(result.current.open).toBe(true);
@@ -42,8 +42,8 @@ describe('useOnFullScreen', () => {
     const { result } = renderHook(() =>
       useOnFullScreen({
         ...defaultProps,
+        isOpen: true,
         onClose: onCloseMock,
-        openOnLoad: true,
       })
     );
 
@@ -61,8 +61,8 @@ describe('useOnFullScreen', () => {
     const { result } = renderHook(() =>
       useOnFullScreen({
         ...defaultProps,
+        isOpen: true,
         onESCKeyDown: onESCKeyDownMock,
-        openOnLoad: true,
       })
     );
 
@@ -79,7 +79,7 @@ describe('useOnFullScreen', () => {
 
   it('should clean up class and event listeners on unmount', () => {
     const { unmount } = renderHook(() =>
-      useOnFullScreen({ ...defaultProps, openOnLoad: true })
+      useOnFullScreen({ ...defaultProps, isOpen: true })
     );
 
     unmount();

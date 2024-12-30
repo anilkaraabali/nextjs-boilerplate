@@ -1,25 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 
-export interface OnFullScreenProps {
+interface OnFullScreenProps {
   documentBodyClassName: string;
+  isOpen: boolean;
   onClose?: () => void;
   onESCKeyDown?: () => void;
   onOpen?: () => void;
-  openOnLoad: boolean;
 }
 
-export const useOnFullScreen = ({
+const useOnFullScreen = ({
   documentBodyClassName,
+  isOpen,
   onClose,
   onESCKeyDown,
   onOpen,
-  openOnLoad,
 }: OnFullScreenProps): {
   open: boolean;
   setOpen: (status: boolean) => void;
 } => {
-  const [open, setOpen] = useState(openOnLoad);
-  const initialRenderRef = useRef(!openOnLoad);
+  const [open, setOpen] = useState(isOpen);
+  const initialRenderRef = useRef(!isOpen);
 
   useEffect(() => {
     if (initialRenderRef.current) {
@@ -46,7 +46,6 @@ export const useOnFullScreen = ({
     }
 
     return (): void => {
-      // cleanup anyway on unmount
       document.body.classList.remove(documentBodyClassName);
       document.removeEventListener('keydown', escListener);
     };
@@ -57,3 +56,6 @@ export const useOnFullScreen = ({
     setOpen,
   };
 };
+
+export type { OnFullScreenProps };
+export { useOnFullScreen };

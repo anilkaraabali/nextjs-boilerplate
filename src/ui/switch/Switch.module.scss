@@ -39,8 +39,6 @@ $selector: '.switch';
     &-lg {
       @include font(heading-6);
 
-      font-family: var(--font-sans);
-
       #{$selector}__button {
         height: 3.2rem;
         width: 5.6rem;
