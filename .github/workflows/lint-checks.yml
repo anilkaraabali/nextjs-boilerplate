@@ -1,7 +1,8 @@
-name: Lint and Validate Checks
+name: Code quality checks
 
 on:
   pull_request:
+    types: [opened, reopened, synchronize]
     branches:
       - master
       - '**'
