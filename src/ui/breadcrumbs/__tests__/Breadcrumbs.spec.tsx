@@ -17,7 +17,7 @@ describe('Breadcrumbs', () => {
 
     expect(navElement).toBeInTheDocument();
 
-    const breadcrumbItems = screen.getAllByTestId('breadcrumb-option');
+    const breadcrumbItems = screen.getAllByTestId('breadcrumbs/option');
 
     expect(breadcrumbItems).toHaveLength(options.length);
 
@@ -35,7 +35,7 @@ describe('Breadcrumbs', () => {
 
     render(<Breadcrumbs options={options} />);
 
-    const breadcrumbItems = screen.getAllByTestId('breadcrumb-option');
+    const breadcrumbItems = screen.getAllByTestId('breadcrumbs/option');
 
     expect(breadcrumbItems[breadcrumbItems.length - 1]).toHaveTextContent(
       'Product'

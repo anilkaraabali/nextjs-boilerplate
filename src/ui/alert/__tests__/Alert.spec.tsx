@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
@@ -19,7 +18,7 @@ describe('Alert Component', () => {
     expect(alertElement).toBeInTheDocument();
     expect(alertElement).toHaveClass('alert--success');
     expect(screen.getByText('This is a success alert')).toBeInTheDocument();
-    expect(screen.getByTestId('alert-close-button')).toBeInTheDocument();
+    expect(screen.getByTestId('alert/close-button')).toBeInTheDocument();
   });
 
   it('calls onCloseButtonClick when close button is clicked', () => {
@@ -33,7 +32,7 @@ describe('Alert Component', () => {
       />
     );
 
-    const closeButton = screen.getByTestId('alert-close-button');
+    const closeButton = screen.getByTestId('alert/close-button');
 
     fireEvent.click(closeButton);
 
@@ -50,7 +49,7 @@ describe('Alert Component', () => {
       />
     );
 
-    const iconElement = screen.queryByTestId('alert-icon');
+    const iconElement = screen.queryByTestId('alert/icon');
 
     expect(iconElement).not.toBeInTheDocument();
   });

@@ -27,7 +27,7 @@ const BreadcrumbsOption: FC<BreadcrumbsOptionProps> = ({
     className={clsx(styles['breadcrumbs__item'], {
       [styles['breadcrumbs__item--last']]: isLastOption,
     })}
-    data-testid='breadcrumb-option'
+    data-testid='breadcrumbs/option'
   >
     {!isFirstOption && (
       <LiaAngleRightSolid className={styles['breadcrumbs__icon']} size={16} />

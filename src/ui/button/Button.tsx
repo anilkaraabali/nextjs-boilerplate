@@ -41,12 +41,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       {...rest}
       className={clsx(
         styles['button'],
+        styles[`button--radius-${radius}`],
+        styles[`button--size-${size}`],
+        styles[`button--theme-${theme}`],
+        styles[`button--variant-${variant}`],
         {
           [styles['button--fab']]: isIconOnly,
-          [styles[`button-radius--${radius}`]]: radius,
-          [styles[`button-size--${size}`]]: size,
-          [styles[`button-theme--${theme}`]]: theme,
-          [styles[`button-variant--${variant}`]]: variant,
         },
         rest.className
       )}

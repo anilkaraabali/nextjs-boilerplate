@@ -26,7 +26,7 @@ describe('CollapsingDescription', () => {
     expect(container).toBeInTheDocument();
     expect(container).toHaveClass('collapsing-description');
 
-    const content = screen.getByTestId('collapsing-description-content');
+    const content = screen.getByTestId('collapsing-description/content');
 
     expect(content).toBeInTheDocument();
     expect(content).toHaveClass('collapsing-description__content--trim');
@@ -53,7 +53,7 @@ describe('CollapsingDescription', () => {
     render(<CollapsingDescription maxHeight={50} text={sampleText} />);
 
     const button = screen.getByRole('button');
-    const content = screen.getByTestId('collapsing-description-content');
+    const content = screen.getByTestId('collapsing-description/content');
 
     expect(content).toHaveStyle('max-height: 50px');
 

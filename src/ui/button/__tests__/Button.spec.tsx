@@ -15,14 +15,14 @@ describe('Button', () => {
     render(<Button size='lg'>Large Button</Button>);
     const button = screen.getByTestId('button');
 
-    expect(button).toHaveClass('button-size--lg');
+    expect(button).toHaveClass('button--size-lg');
   });
 
   it('should render with the correct theme class', () => {
     render(<Button theme='primary'>Primary Button</Button>);
     const button = screen.getByTestId('button');
 
-    expect(button).toHaveClass('button-theme--primary');
+    expect(button).toHaveClass('button--theme-primary');
   });
 
   it('should render an icon-only button correctly', () => {
