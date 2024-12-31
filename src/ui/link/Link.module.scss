@@ -7,36 +7,36 @@ $selector: '.link';
   transition: all 150ms ease-out;
   user-select: none;
 
-  &-theme {
-    &--primary {
+  &--theme {
+    &-primary {
       color: color(primary);
     }
 
-    &--secondary {
+    &-secondary {
       color: color(secondary);
     }
 
-    &--default {
+    &-default {
       color: color(foreground);
     }
   }
 
-  &-size {
-    &--sm {
+  &--size {
+    &-sm {
       @include font(label);
     }
 
-    &--md {
+    &-md {
       @include font(body);
     }
 
-    &--lg {
+    &-lg {
       @include font(heading-6);
     }
   }
 
-  &-underline {
-    &--always {
+  &--underline {
+    &-always {
       text-decoration: underline;
 
       @include hover-pointer-fine {
@@ -46,7 +46,7 @@ $selector: '.link';
       }
     }
 
-    &--hover {
+    &-hover {
       @include hover-pointer-fine {
         &:hover {
           text-decoration: underline;
@@ -54,11 +54,11 @@ $selector: '.link';
       }
     }
 
-    &--none {
+    &-none {
       text-decoration: none;
     }
 
-    &--active {
+    &-active {
       &:active {
         text-decoration: underline;
       }
@@ -76,7 +76,7 @@ $selector: '.link';
       }
     }
 
-    &#{$selector}-theme--primary {
+    &#{$selector}--theme-primary {
       @include hover-pointer-fine {
         &:hover {
           background-color: color(primary, 0.2);
@@ -84,7 +84,7 @@ $selector: '.link';
       }
     }
 
-    &#{$selector}-theme--secondary {
+    &#{$selector}--theme-secondary {
       @include hover-pointer-fine {
         &:hover {
           background-color: color(secondary, 0.2);
@@ -92,7 +92,7 @@ $selector: '.link';
       }
     }
 
-    &#{$selector}-theme--default {
+    &#{$selector}--theme-default {
       @include hover-pointer-fine {
         &:hover {
           background-color: color(default, 0.2);

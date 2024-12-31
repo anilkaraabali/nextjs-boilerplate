@@ -46,11 +46,11 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         : undefined)}
       className={clsx(
         styles['link'],
+        styles[`link--size-${size}`],
+        styles[`link--theme-${theme}`],
+        styles[`link--underline-${underline}`],
         {
           [styles['link--block']]: isBlock,
-          [styles[`link-size--${size}`]]: size,
-          [styles[`link-theme--${theme}`]]: theme,
-          [styles[`link-underline--${underline}`]]: underline,
         },
         rest.className
       )}

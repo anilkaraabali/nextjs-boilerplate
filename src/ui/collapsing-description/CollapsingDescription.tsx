@@ -47,7 +47,7 @@ const CollapsingDescription = forwardRef<
           [styles['collapsing-description__content--trim']]:
             !expanded && scrollHeight > maxHeight,
         })}
-        data-testid='collapsing-description-content'
+        data-testid='collapsing-description/content'
         ref={contentRef}
         style={
           {

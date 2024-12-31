@@ -40,97 +40,97 @@ $selector: '.button';
     min-width: auto;
     padding: 0;
 
-    &#{$selector}-size {
-      &--sm {
+    &#{$selector}--size {
+      &-sm {
         width: size(32);
       }
 
-      &--md {
+      &-md {
         width: size(40);
       }
 
-      &--lg {
+      &-lg {
         width: size(48);
       }
     }
   }
 
-  &-size {
-    &--sm {
+  &--size {
+    &-sm {
       height: size(32);
     }
 
-    &--lg {
+    &-lg {
       height: size(48);
     }
   }
 
-  &-radius {
-    &--none {
+  &--radius {
+    &-none {
       border-radius: 0;
     }
 
-    &--sm {
+    &-sm {
       border-radius: radius(sm);
     }
 
-    &--md {
+    &-md {
       border-radius: radius(md);
     }
 
-    &--lg {
+    &-lg {
       border-radius: radius(lg);
     }
 
-    &--full {
+    &-full {
       border-radius: radius(full);
     }
   }
 
-  &-theme {
-    &--primary {
+  &--theme {
+    &-primary {
       background-color: color(primary);
       color: color(primary);
     }
 
-    &--secondary {
+    &-secondary {
       background-color: color(secondary);
       color: color(secondary);
     }
 
-    &--default {
+    &-default {
       background-color: color(default);
       color: color(foreground);
     }
   }
 
-  &-variant {
-    &--solid {
-      &#{$selector}-theme--primary,
-      &#{$selector}-theme--secondary {
+  &--variant {
+    &-solid {
+      &#{$selector}--theme-primary,
+      &#{$selector}--theme-secondary {
         color: color(light);
       }
     }
 
-    &--flat {
-      &#{$selector}-theme--default {
+    &-flat {
+      &#{$selector}--theme-default {
         background-color: color(default, 0.2);
       }
 
-      &#{$selector}-theme--primary {
+      &#{$selector}--theme-primary {
         background-color: color(primary, 0.2);
       }
 
-      &#{$selector}-theme--secondary {
+      &#{$selector}--theme-secondary {
         background-color: color(secondary, 0.2);
       }
     }
 
-    &--ghost {
+    &-ghost {
       background-color: transparent;
       border: 1px solid currentColor;
 
-      &#{$selector}-theme--default {
+      &#{$selector}--theme-default {
         border-color: color(default);
 
         @include hover-pointer-fine {
@@ -140,7 +140,7 @@ $selector: '.button';
         }
       }
 
-      &#{$selector}-theme--primary {
+      &#{$selector}--theme-primary {
         border-color: color(primary);
 
         @include hover-pointer-fine {
@@ -152,7 +152,7 @@ $selector: '.button';
         }
       }
 
-      &#{$selector}-theme--secondary {
+      &#{$selector}--theme-secondary {
         border-color: color(secondary);
 
         @include hover-pointer-fine {
@@ -165,10 +165,10 @@ $selector: '.button';
       }
     }
 
-    &--light {
+    &-light {
       background-color: transparent;
 
-      &#{$selector}-theme--default {
+      &#{$selector}--theme-default {
         @include hover-pointer-fine {
           &:hover {
             background-color: color(default, 0.2);
@@ -176,7 +176,7 @@ $selector: '.button';
         }
       }
 
-      &#{$selector}-theme--primary {
+      &#{$selector}--theme-primary {
         @include hover-pointer-fine {
           &:hover {
             background-color: color(primary, 0.2);
@@ -185,7 +185,7 @@ $selector: '.button';
         }
       }
 
-      &#{$selector}-theme--secondary {
+      &#{$selector}--theme-secondary {
         @include hover-pointer-fine {
           &:hover {
             background-color: color(secondary, 0.2);

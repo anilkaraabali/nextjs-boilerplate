@@ -63,7 +63,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
         <div className={styles['alert__content']}>
           {!hideIcon && (
             <div className={styles['alert__icon']}>
-              <Icon data-testid='alert-icon' />
+              <Icon data-testid='alert/icon' />
             </div>
           )}
           <div className={styles['alert__title']}>{text}</div>
@@ -71,7 +71,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
         <button
           aria-label='Close alert'
           className={styles['alert__button']}
-          data-testid='alert-close-button'
+          data-testid='alert/close-button'
           onClick={onCloseButtonClick}
           type='button'
         >

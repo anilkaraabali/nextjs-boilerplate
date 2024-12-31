@@ -56,7 +56,7 @@ describe('Snackbar', () => {
 
     render(<Snackbar />);
 
-    const primaryActionButton = screen.getByTestId('snackbar-action');
+    const primaryActionButton = screen.getByTestId('snackbar/action');
 
     expect(primaryActionButton).toBeInTheDocument();
 
@@ -83,7 +83,7 @@ describe('Snackbar', () => {
 
     render(<Snackbar />);
 
-    const secondaryActionButton = screen.getByTestId('snackbar-action');
+    const secondaryActionButton = screen.getByTestId('snackbar/action');
 
     expect(secondaryActionButton).toBeInTheDocument();
 
