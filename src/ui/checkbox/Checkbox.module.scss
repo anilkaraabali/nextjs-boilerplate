@@ -1,0 +1,176 @@
+$selector: '.checkbox';
+
+#{$selector} {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: spacing(2);
+  justify-content: flex-start;
+  margin: -(spacing(2));
+  max-width: fit-content;
+  padding: spacing(2);
+  position: relative;
+
+  @include hover-pointer-fine {
+    &:hover {
+      span::before {
+        background-color: color(default-100);
+      }
+    }
+  }
+
+  &--theme {
+    &-default {
+      input[type='checkbox']:checked {
+        ~ span svg {
+          color: color(foreground);
+        }
+
+        ~ span::before {
+          background-color: color(default);
+        }
+      }
+    }
+
+    &-primary {
+      input[type='checkbox']:checked ~ span::after {
+        background-color: color(primary);
+      }
+    }
+
+    &-secondary {
+      input[type='checkbox']:checked ~ span::after {
+        background-color: color(secondary);
+      }
+    }
+  }
+
+  &--size {
+    &-sm {
+      @include font(label);
+
+      span {
+        height: size(16);
+        width: size(16);
+
+        &,
+        &::before,
+        &::after {
+          border-radius: calc(radius(lg) * 0.5);
+        }
+
+        svg {
+          height: size(8);
+          width: size(12);
+        }
+      }
+    }
+
+    &-md {
+      @include font(body);
+
+      span {
+        height: size(20);
+        width: size(20);
+
+        &,
+        &::before,
+        &::after {
+          border-radius: radius(md);
+        }
+
+        svg {
+          height: size(16);
+          width: size(12);
+        }
+      }
+    }
+
+    &-lg {
+      @include font(heading-6);
+
+      span {
+        height: size(24);
+        width: size(24);
+
+        &,
+        &::before,
+        &::after {
+          border-radius: radius(md);
+        }
+
+        svg {
+          height: size(16);
+          width: size(20);
+        }
+      }
+    }
+  }
+
+  span {
+    align-items: center;
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition-duration: 0.25s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::before {
+      border: 2px solid color(default);
+      content: '';
+      inset: 0;
+      position: absolute;
+      transition-duration: 0.25s;
+      transition-property: color, background-color, border-color,
+        text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &::after {
+      content: '';
+      inset: 0;
+      opacity: 0;
+      position: absolute;
+      transform: matrix(0.5, 0, 0, 0.5, 0, 0);
+      transform-origin: center;
+      transition-duration: 0.2s;
+      transition-property: transform, opacity;
+      transition-timing-function: linear;
+    }
+  }
+
+  input[type='checkbox'] {
+    --cursor-hit-x: 8px;
+
+    cursor: pointer;
+    height: 100%;
+    inset-inline-start: -8px;
+    position: absolute;
+    top: 0;
+    width: calc(100% + var(--cursor-hit-x) * 2);
+
+    &:checked {
+      ~ span::after {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+      }
+
+      ~ span svg {
+        opacity: 1;
+      }
+    }
+  }
+
+  svg {
+    color: color(light);
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 0.25s;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: zIndex(resting);
+  }
+}
