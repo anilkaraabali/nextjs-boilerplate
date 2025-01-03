@@ -19,6 +19,10 @@ $selector: '.link';
     &-default {
       color: color(foreground);
     }
+
+    &-danger {
+      color: color(danger);
+    }
   }
 
   &--size {
@@ -96,6 +100,14 @@ $selector: '.link';
       @include hover-pointer-fine {
         &:hover {
           background-color: color(default, 0.2);
+        }
+      }
+    }
+
+    &#{$selector}--theme-danger {
+      @include hover-pointer-fine {
+        &:hover {
+          background-color: color(danger, 0.2);
         }
       }
     }

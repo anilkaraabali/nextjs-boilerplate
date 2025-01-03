@@ -102,12 +102,18 @@ $selector: '.button';
       background-color: color(default);
       color: color(foreground);
     }
+
+    &-danger {
+      background-color: color(danger);
+      color: color(danger);
+    }
   }
 
   &--variant {
     &-solid {
       &#{$selector}--theme-primary,
-      &#{$selector}--theme-secondary {
+      &#{$selector}--theme-secondary,
+      &#{$selector}--theme-danger {
         color: color(light);
       }
     }
@@ -123,6 +129,10 @@ $selector: '.button';
 
       &#{$selector}--theme-secondary {
         background-color: color(secondary, 0.2);
+      }
+
+      &#{$selector}--theme-danger {
+        background-color: color(danger, 0.2);
       }
     }
 
@@ -163,6 +173,18 @@ $selector: '.button';
           }
         }
       }
+
+      &#{$selector}--theme-danger {
+        border-color: color(danger);
+
+        @include hover-pointer-fine {
+          &:hover {
+            background-color: color(danger);
+            color: color(light);
+            opacity: 1;
+          }
+        }
+      }
     }
 
     &-light {
@@ -189,6 +211,15 @@ $selector: '.button';
         @include hover-pointer-fine {
           &:hover {
             background-color: color(secondary, 0.2);
+            opacity: 1;
+          }
+        }
+      }
+
+      &#{$selector}--theme-danger {
+        @include hover-pointer-fine {
+          &:hover {
+            background-color: color(danger, 0.2);
             opacity: 1;
           }
         }

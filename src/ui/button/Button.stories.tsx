@@ -31,7 +31,7 @@ const meta: Meta<typeof Button> = {
     },
     theme: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'default'],
+      options: ['primary', 'secondary', 'default', 'danger'],
     },
     variant: {
       control: { type: 'radio' },
