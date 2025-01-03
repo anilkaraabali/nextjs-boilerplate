@@ -5,7 +5,7 @@ import styles from './Link.module.scss';
 
 type LinkSizeType = 'lg' | 'md' | 'sm';
 type LinkUnderlineType = 'active' | 'always' | 'hover' | 'none';
-type LinkThemeType = 'default' | 'primary' | 'secondary';
+type LinkThemeType = 'danger' | 'default' | 'primary' | 'secondary';
 
 interface LinkProps extends ComponentPropsWithRef<'a'> {
   endContent?: ReactNode;

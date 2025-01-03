@@ -3,7 +3,7 @@ import React, { ComponentPropsWithRef, forwardRef, ReactNode } from 'react';
 
 import styles from './Button.module.scss';
 
-type ButtonThemeType = 'default' | 'primary' | 'secondary';
+type ButtonThemeType = 'danger' | 'default' | 'primary' | 'secondary';
 type ButtonVariantType = 'flat' | 'ghost' | 'light' | 'solid';
 type ButtonSizeType = 'lg' | 'md' | 'sm';
 type ButtonRadiusType = 'full' | 'lg' | 'md' | 'none' | 'sm';

@@ -25,14 +25,6 @@ $selector: '.input';
       }
     }
 
-    &:focus-within #{$selector}__label {
-      transform: matrix(0.85, 0, 0, 0.85, 0, -11);
-    }
-
-    &:focus-within #{$selector}--size-sm #{$selector}__label {
-      transform: matrix(0.85, 0, 0, 0.85, 0, -8);
-    }
-
     &--error {
       background-color: color(red-100);
       color: color(danger);
@@ -60,16 +52,42 @@ $selector: '.input';
         #{$selector}__label--active {
           transform: matrix(0.85, 0, 0, 0.85, 0, -8);
         }
+
+        &:focus-within {
+          #{$selector}__label {
+            transform: matrix(0.85, 0, 0, 0.85, 0, -8) !important;
+          }
+        }
       }
 
       &-md {
         height: size(56);
+
+        #{$selector}__label--active {
+          transform: matrix(0.85, 0, 0, 0.85, 0, -11);
+        }
+
+        &:focus-within {
+          #{$selector}__label {
+            transform: matrix(0.85, 0, 0, 0.85, 0, -11);
+          }
+        }
       }
 
       &-lg {
         height: size(64);
 
         @include font(body);
+
+        #{$selector}__label--active {
+          transform: matrix(0.85, 0, 0, 0.85, 0, -11);
+        }
+
+        &:focus-within {
+          #{$selector}__label {
+            transform: matrix(0.85, 0, 0, 0.85, 0, -11);
+          }
+        }
       }
     }
 
@@ -102,10 +120,6 @@ $selector: '.input';
     transform-origin: top left;
     transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1);
     will-change: auto;
-
-    &--active {
-      transform: matrix(0.85, 0, 0, 0.85, 0, -11);
-    }
   }
 
   &__inner-wrapper {

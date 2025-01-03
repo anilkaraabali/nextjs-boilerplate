@@ -21,7 +21,7 @@ const meta: Meta<typeof Link> = {
     },
     theme: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'default'],
+      options: ['primary', 'secondary', 'default', 'danger'],
     },
     underline: {
       control: { type: 'radio' },
